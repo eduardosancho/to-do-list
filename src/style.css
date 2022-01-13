@@ -14,14 +14,20 @@ body {
 
 #to-do-list div {
     padding-inline-start: 15px;
+    padding-inline-end: 15px;
 }
 
 #list-title {
     background-color: white;
+    display: flex;
+    justify-content: space-between;
 }
 
 form {
     display: flex;
+    align-items: center;
+    background-color: white;
+    padding-inline-end: 15px;
 }
 
 .task-row {
@@ -37,6 +43,10 @@ input {
 
 .task-description {
     padding-left: 10px;
+}
+
+.task-row i {
+    margin-left: auto;
 }
 
 #new-task-description {

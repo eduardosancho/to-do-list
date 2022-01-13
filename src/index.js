@@ -25,6 +25,7 @@ function displayList() {
         const taskMarkup = (task) => `
         <input type="checkbox" id="accept-${task.index}">
         <p class="task-description">${task.description}</p>
+        <i class="fas fa-ellipsis-v"></i>
         `;
 
         taskRow.innerHTML = taskMarkup(task);
