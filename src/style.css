@@ -21,6 +21,7 @@ body {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 form {
@@ -53,6 +54,8 @@ input {
   width: 98%;
   border: none;
   padding: 15px;
+  font-style: italic;
+  color: gray;
 }
 
 #clear-completed {
