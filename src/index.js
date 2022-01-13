@@ -10,7 +10,7 @@ addTaskForm.addEventListener('submit', (e) => {
 });
 
 const addTaskButton = document.getElementById('add-task');
-addTaskForm.addEventListener('click', (e) => {
+addTaskButton.addEventListener('click', (e) => {
   e.preventDefault();
   toDoList.addTask();
 });
