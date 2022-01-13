@@ -41,4 +41,4 @@ function displayList() {
   return listContainer;
 }
 
-document.body.appendChild(displayList());
+displayList();
