@@ -1,8 +1,8 @@
 import './style.css';
-import { ToDoList } from './modules/ToDoList';
+import { ToDoList } from './modules/ToDoList.js';
 
 const toDoList = new ToDoList();
 toDoList.addTask();
 
 
-displayList();
+toDoList.displayList();
