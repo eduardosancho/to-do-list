@@ -12,12 +12,9 @@ body {
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-#to-do-list div {
+#list-title {
   padding-inline-start: 15px;
   padding-inline-end: 15px;
-}
-
-#list-title {
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -31,7 +28,14 @@ form {
   padding-inline-end: 15px;
 }
 
+#task-list {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+}
+
 .task-row {
+  padding-inline-start: 15px;
+  padding-inline-end: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;

@@ -16,6 +16,7 @@ const toDoList = [task0, task1];
 
 function displayList() {
   const listContainer = document.getElementById('to-do-list');
+  const taskContainer = document.getElementById('task-list');
 
   const clearBtn = document.createElement('span');
 
@@ -31,8 +32,9 @@ function displayList() {
     taskRow.innerHTML = taskMarkup(task);
     taskRow.classList.add('task-row');
 
-    listContainer.appendChild(taskRow);
+    taskContainer.appendChild(taskRow);
   });
+  listContainer.appendChild(taskContainer);
 
   clearBtn.setAttribute('id', 'clear-completed');
   clearBtn.textContent = 'Clear all completed';
