@@ -1,35 +1,43 @@
+import './style.css';
+
 const task0 = {
-  description: 'wash the dishes',
-  completed: false,
-  index: 0,
+    description: 'wash the dishes',
+    completed: false,
+    index: 0,
 };
 
 const task1 = {
-  description: 'Complete To Do list project',
-  completed: false,
-  index: 1,
+    description: 'complete To Do list project',
+    completed: false,
+    index: 1,
 };
 
 const toDoList = [task0, task1];
 
 function displayList() {
-  const listContainer = document.getElementById('to-do-list');
+    const listContainer = document.getElementById('to-do-list');
 
-  toDoList.forEach((task) => {
-    const taskRow = document.createElement('div');
+    const clearBtn = document.createElement('span');
 
-    const taskMarkup = (task) => `
+    toDoList.forEach((task) => {
+        const taskRow = document.createElement('div');
+
+        const taskMarkup = (task) => `
         <input type="checkbox" id="accept-${task.index}">
-        <p>${task.description}</p>
+        <p class="task-description">${task.description}</p>
         `;
 
-    taskRow.innerHTML = taskMarkup(task);
+        taskRow.innerHTML = taskMarkup(task);
+        taskRow.classList.add('task-row');
 
-    listContainer.appendChild(taskRow);
-  });
+        listContainer.appendChild(taskRow);
+    });
 
+    clearBtn.setAttribute('id', 'clear-completed');
+    clearBtn.textContent = 'Clear all completed';
+    listContainer.appendChild(clearBtn);
 
-  return listContainer;
+    return listContainer;
 }
 
 document.body.appendChild(displayList());
