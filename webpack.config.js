@@ -14,9 +14,13 @@ module.exports = {
       },
     ],
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'To-Do List',
       template: './src/template.html',
     }),
   ],
