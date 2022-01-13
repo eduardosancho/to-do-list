@@ -1,4 +1,4 @@
-import { Task, go } from './Task.js'
+import { Task } from './Task.js'
 
 const task0 = {
     description: 'wash the dishes',
@@ -6,21 +6,15 @@ const task0 = {
     index: 0,
 };
 
-const task1 = {
-    description: 'complete To Do list project',
-    completed: false,
-    index: 1,
-};
-
 
 export class ToDoList {
     constructor() {
-        this.tasks = [];
-        // this.tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('books')) : [];
+        this.tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
         this.taskList = document.getElementById('task-list');
     }
 
     displayList() {
+        this.taskList.innerHTML = '';
         this.tasks.forEach((task) => {
             const taskRow = document.createElement('div');
 
@@ -42,12 +36,17 @@ export class ToDoList {
     }
 
     addTask() {
-        this.tasks.push(task0, task1);
+        this.tasks.push(task0);
         this.storeData();
+        this.displayList();
     }
 
     getListSize = () => { this.tasks.length(); }
 
-
-
 }
+
+
+/* export function go(){
+    console.log('Hi Im here');
+    
+} */
