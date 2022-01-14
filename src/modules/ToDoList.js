@@ -46,7 +46,9 @@ export class ToDoList {
     }
 
     editTask(row, oldDescription, index) {
-        console.log('im in');
+        row.querySelector('i').classList.remove("fas", "fa-ellipsis-vfas", "options");
+        row.querySelector('i').classList.add("far", "fa-trash-alt", "remove");
+
         const oldRows = document.querySelectorAll('.yellow');
         oldRows.forEach((notSelected) => {
             notSelected.classList.remove('yellow');
@@ -76,12 +78,4 @@ export class ToDoList {
             }
         });
     }
-
-
 }
-
-
-/* export function go(){
-    console.log('Hi Im here');
-    
-} */

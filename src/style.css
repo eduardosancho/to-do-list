@@ -58,7 +58,8 @@ input {
   min-width: 80vw;
 }
 
-.options {
+.options,
+.remove {
   margin-left: auto;
 }
 
