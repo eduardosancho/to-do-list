@@ -21,7 +21,7 @@ body {
   align-items: center;
 }
 
-form {
+#add-task-form {
   display: flex;
   align-items: center;
   background-color: white;
@@ -31,10 +31,13 @@ form {
 #task-list {
   padding-inline-start: 0;
   padding-inline-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
 }
 
 .task-row {
-  padding-inline-start: 15px;
+  padding-inline-start: 5px;
   padding-inline-end: 15px;
   display: flex;
   justify-content: flex-start;
@@ -42,16 +45,34 @@ form {
   background-color: white;
 }
 
+.task-row input {
+  margin: 10px;
+}
+
 input {
   margin: 0;
 }
 
 .task-description {
-  padding-left: 10px;
+  margin: 0;
+  min-width: 80vw;
 }
 
-.task-row i {
+.options {
   margin-left: auto;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+#update-task-description {
+  border: none;
+  margin: 0;
+}
+
+#update-task-description:focus-visible {
+  outline: none;
 }
 
 #new-task-description {
