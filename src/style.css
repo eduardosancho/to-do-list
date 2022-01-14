@@ -45,12 +45,12 @@ body {
   background-color: white;
 }
 
-.task-row input {
-  margin: 10px;
-}
-
 input {
   margin: 0;
+}
+
+.task-row input {
+  margin: 10px;
 }
 
 .task-description {

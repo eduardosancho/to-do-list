@@ -1,5 +1,5 @@
 import './style.css';
-import { ToDoList, go } from './modules/ToDoList.js';
+import ToDoList from './modules/ToDoList.js';
 
 const toDoList = new ToDoList();
 
@@ -15,9 +15,6 @@ addTaskButton.addEventListener('click', (e) => {
   toDoList.addTask();
 });
 
-
-
 toDoList.displayList();
 
-
-//go();
+// go();
