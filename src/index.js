@@ -17,4 +17,4 @@ addTaskButton.addEventListener('click', (e) => {
 
 toDoList.displayList();
 
-// go();
+

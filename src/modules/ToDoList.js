@@ -31,6 +31,12 @@ export default class ToDoList {
         this.editTask(taskRow, task.description, task.index);
       });
 
+      const box = taskRow.querySelector('input[type=checkbox]');
+      box.addEventListener('change', () => {
+        
+        console.log(box);
+      });
+
       this.taskList.appendChild(taskRow);
     });
   }
