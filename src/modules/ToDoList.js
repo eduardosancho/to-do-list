@@ -46,6 +46,7 @@ export class ToDoList {
     }
 
     editTask(row, oldDescription, index) {
+        console.log('im in');
         const oldRows = document.querySelectorAll('.yellow');
         oldRows.forEach((notSelected) => {
             notSelected.classList.remove('yellow');
@@ -57,15 +58,25 @@ export class ToDoList {
         <input type="text" class="update-task-description" id="update-task-description-${index}" value="${oldDescription}" autofocus>
         </form>
         `;
-        
+
         const updateTaskForm = document.querySelector(`#update-task-form-${index}`);
-        updateTaskForm.onchange = (e) => {
-            e.preventDefault();
-            this.tasks[index].description = document.getElementById('update-task-description').value;
+        updateTaskForm.addEventListener('submit', () => {
+            this.tasks[index].description = document.getElementById(`update-task-description-${index}`).value;
             this.storeData();
-            updateTaskForm.submit();
-        };
+        });
+
+        const otherTasks = document.querySelectorAll('.task-row');
+        otherTasks.forEach((other) => {
+            if (!other.classList.contains('yellow')) {  
+                other.addEventListener('mouseover', () => {
+                    this.tasks[index].description = document.getElementById(`update-task-description-${index}`).value;
+                    this.storeData();
+                    updateTaskForm.submit();
+                });
+            }
+        });
     }
+
 
 }
 
