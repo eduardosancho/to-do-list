@@ -1,5 +1,5 @@
 import Task from './Task.js';
-import { isCompleted, storeCompleted } from './Completed.js';
+import { isCompleted, getCompleted } from './Completed.js';
 
 export default class ToDoList {
   constructor() {
@@ -10,6 +10,11 @@ export default class ToDoList {
   removeTask(index) {
     this.tasks = this.tasks.filter((task) => this.tasks.indexOf(task) !== index);
     this.storeData();
+  }
+
+  removeCompleted() {
+    let completedTasks = getCompleted();
+    completedTasks.forEach((/*task*/) => this.removeTask(/*MISS*/)); 
   }
 
   displayList() {
@@ -33,9 +38,10 @@ export default class ToDoList {
       });
 
       const box = taskRow.querySelector('input[type=checkbox]');
-      box.addEventListener('change', () => {
+      box.addEventListener('change', (e) => {
+        console.log(e.target.parentNode);
+        this.storeData();
         isCompleted();
-        storeCompleted();
       });
 
       this.taskList.appendChild(taskRow);
