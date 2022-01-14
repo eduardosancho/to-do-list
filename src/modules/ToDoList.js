@@ -1,4 +1,5 @@
 import Task from './Task.js';
+import { isCompleted, storeCompleted } from './Completed.js';
 
 export default class ToDoList {
   constructor() {
@@ -33,8 +34,8 @@ export default class ToDoList {
 
       const box = taskRow.querySelector('input[type=checkbox]');
       box.addEventListener('change', () => {
-        
-        console.log(box);
+        isCompleted();
+        storeCompleted();
       });
 
       this.taskList.appendChild(taskRow);

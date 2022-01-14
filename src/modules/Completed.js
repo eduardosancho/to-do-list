@@ -1,11 +1,10 @@
 
+function storeCompleted(task) {
+    console.log('store');
+};
 
-export default class CompletedList {
-    constructor() {
-        this.list = [];
-        this.size = this.list.length;
-    }
+function isCompleted(box) {
+    console.log('complete');
+};
 
-
-
-}
+export { storeCompleted, isCompleted }
