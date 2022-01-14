@@ -1,17 +1,13 @@
-const completedList = [];
 
 function getCompleted() {
+  const storageList = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
+  const completedList = [];
+  storageList.forEach((task) => {
+    if (task.completed === 'checked') {
+      completedList.push(task.index);
+    }
+  });
     return completedList;
 };
 
-function isCompleted(task) {
-    if (task) {
-        console.log('add to complete');
-        // completedList.push(task);
-    } else {
-        console.log('remove from complete');
-        // completedList = completedList.filter((task) => this.tasks.indexOf(task) !== index);
-    }
-};
-
-export { isCompleted, getCompleted }
+export { getCompleted };
