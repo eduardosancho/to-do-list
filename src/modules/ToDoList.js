@@ -6,9 +6,15 @@ export default class ToDoList {
     this.taskList = document.getElementById('task-list');
   }
 
+  removeTask(index) {
+    this.tasks = this.tasks.filter((task) => this.tasks.indexOf(task) !== index);
+    this.storeData();
+  }
+
   displayList() {
     this.taskList.innerHTML = '';
     this.tasks.forEach((task) => {
+      task.index = this.tasks.indexOf(task);
       const taskRow = document.createElement('div');
 
       const taskMarkup = (task) => `
@@ -36,8 +42,8 @@ export default class ToDoList {
   addTask() {
     const task = new Task(this.tasks.length);
     if ((this.tasks.length === 0 && task.description !== '')
-        || (JSON.stringify(this.tasks[this.tasks.length - 1].description)
-            !== JSON.stringify(task.description)
+            || (JSON.stringify(this.tasks[this.tasks.length - 1].description)
+                !== JSON.stringify(task.description)
                 && task.description !== '')) {
       this.tasks.push(task);
       this.storeData();
@@ -49,6 +55,11 @@ export default class ToDoList {
   editTask(row, oldDescription, index) {
     row.querySelector('i').classList.remove('fas', 'fa-ellipsis-vfas', 'options');
     row.querySelector('i').classList.add('far', 'fa-trash-alt', 'remove');
+
+    row.querySelector('i').addEventListener('click', () => {
+      this.removeTask(index);
+      this.displayList();
+    });
 
     const oldRows = document.querySelectorAll('.yellow');
     oldRows.forEach((notSelected) => {
