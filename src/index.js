@@ -1,44 +1,20 @@
 import './style.css';
+import ToDoList from './modules/ToDoList.js';
 
-const task0 = {
-  description: 'wash the dishes',
-  completed: false,
-  index: 0,
-};
+const toDoList = new ToDoList();
 
-const task1 = {
-  description: 'complete To Do list project',
-  completed: false,
-  index: 1,
-};
+const addTaskForm = document.getElementById('add-task-form');
+addTaskForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  toDoList.addTask();
+});
 
-const toDoList = [task0, task1];
+const addTaskButton = document.getElementById('add-task');
+addTaskButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  toDoList.addTask();
+});
 
-function displayList() {
-  const listContainer = document.getElementById('to-do-list');
+toDoList.displayList();
 
-  const clearBtn = document.createElement('span');
-
-  toDoList.forEach((task) => {
-    const taskRow = document.createElement('div');
-
-    const taskMarkup = (task) => `
-        <input type="checkbox" id="accept-${task.index}">
-        <p class="task-description">${task.description}</p>
-        <i class="fas fa-ellipsis-v"></i>
-        `;
-
-    taskRow.innerHTML = taskMarkup(task);
-    taskRow.classList.add('task-row');
-
-    listContainer.appendChild(taskRow);
-  });
-
-  clearBtn.setAttribute('id', 'clear-completed');
-  clearBtn.textContent = 'Clear all completed';
-  listContainer.appendChild(clearBtn);
-
-  return listContainer;
-}
-
-document.body.appendChild(displayList());
+// go();

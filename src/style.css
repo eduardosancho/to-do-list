@@ -12,25 +12,33 @@ body {
   box-shadow: 0 2px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-#to-do-list div {
+#list-title {
   padding-inline-start: 15px;
   padding-inline-end: 15px;
-}
-
-#list-title {
   background-color: white;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-form {
+#add-task-form {
   display: flex;
   align-items: center;
   background-color: white;
   padding-inline-end: 15px;
 }
 
+#task-list {
+  padding-inline-start: 0;
+  padding-inline-end: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
 .task-row {
+  padding-inline-start: 5px;
+  padding-inline-end: 15px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -41,18 +49,40 @@ input {
   margin: 0;
 }
 
-.task-description {
-  padding-left: 10px;
+.task-row input {
+  margin: 10px;
 }
 
-.task-row i {
+.task-description {
+  margin: 0;
+  min-width: 80vw;
+}
+
+.options,
+.remove {
   margin-left: auto;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.task-row .update-task-description {
+  background-color: transparent;
+  border: none;
+  margin: 0;
+}
+
+.update-task-description:focus-visible {
+  outline: none;
 }
 
 #new-task-description {
   width: 98%;
   border: none;
   padding: 15px;
+  font-style: italic;
+  color: gray;
 }
 
 #clear-completed {

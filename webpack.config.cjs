@@ -5,7 +5,6 @@ module.exports = {
   mode: 'development',
   entry: {
     index: './src/index.js',
-    print: './src/print.js',
   },
   module: {
     rules: [
@@ -15,9 +14,13 @@ module.exports = {
       },
     ],
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    static: './dist',
+  },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Output Management',
+      title: 'To-Do List',
       template: './src/template.html',
     }),
   ],
