@@ -1,12 +1,5 @@
 import { Task } from './Task.js'
 
-const task0 = {
-    description: 'wash the dishes',
-    completed: false,
-    index: 0,
-};
-
-
 export class ToDoList {
     constructor() {
         this.tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
@@ -36,12 +29,16 @@ export class ToDoList {
     }
 
     addTask() {
-        this.tasks.push(task0);
-        this.storeData();
-        this.displayList();
+        const task = new Task(this.tasks.length);
+        if ((this.tasks.length === 0 && task.description !== '') ||
+            (JSON.stringify(this.tasks[this.tasks.length - 1].description) !== JSON.stringify(task.description)
+                && task.description !== '')) {
+            this.tasks.push(task);
+            this.storeData();
+            this.displayList();
+            document.getElementById('new-task-description').value = '';
+        }
     }
-
-    getListSize = () => { this.tasks.length(); }
 
 }
 

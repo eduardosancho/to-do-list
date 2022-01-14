@@ -1,14 +1,10 @@
 import { ToDoList } from "./ToDoList.js";
 
 export class Task {
-    constructor() {
-        this.description = document.getElementById('new-task-description');
+    constructor(index) {
+        this.description = document.getElementById('new-task-description').value;
         this.completed = false;
-        this.index = ToDoList.getListSize();
+        this.index = index;
     }
 }
 
-export function go(){
-    console.log('Hi Im here');
-    
-}
