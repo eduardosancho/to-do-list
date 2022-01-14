@@ -46,20 +46,25 @@ export class ToDoList {
     }
 
     editTask(row, oldDescription, index) {
+        const oldRows = document.querySelectorAll('.yellow');
+        oldRows.forEach((notSelected) => {
+            notSelected.classList.remove('yellow');
+        });
+
         row.classList.toggle('yellow');
         row.querySelector('div').innerHTML = `
-        <form id="update-task-form">
-        <input type="text" class="yellow" id="update-task-description" value="${oldDescription}" autofocus>
+        <form id="update-task-form-${index}">
+        <input type="text" class="update-task-description" id="update-task-description-${index}" value="${oldDescription}" autofocus>
         </form>
         `;
         
-        const updateTaskForm = row.querySelector('form');
-        updateTaskForm.addEventListener('submit', (e) => {
+        const updateTaskForm = document.querySelector(`#update-task-form-${index}`);
+        updateTaskForm.onchange = (e) => {
             e.preventDefault();
             this.tasks[index].description = document.getElementById('update-task-description').value;
             this.storeData();
-            this.displayList();
-        });
+            updateTaskForm.submit();
+        };
     }
 
 }

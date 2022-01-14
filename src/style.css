@@ -66,12 +66,13 @@ input {
   background-color: yellow;
 }
 
-#update-task-description {
+.task-row .update-task-description {
+  background-color: transparent;
   border: none;
   margin: 0;
 }
 
-#update-task-description:focus-visible {
+.update-task-description:focus-visible {
   outline: none;
 }
 
