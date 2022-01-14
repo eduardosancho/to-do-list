@@ -22,9 +22,8 @@ export default class ToDoList {
     this.tasks.forEach((task) => {
       task.index = this.tasks.indexOf(task);
       const taskRow = document.createElement('div');
-
       const taskMarkup = (task) => `
-                <input type="checkbox" id="accept-${task.index}">
+                <input type="checkbox" id="accept-${task.index}" ${task.completed}>
                 <div><p class="task-description">${task.description}</p></div>
                 <i id="options-task-${task.index}" class="fas fa-ellipsis-v options"></i>
                 `;
@@ -39,7 +38,11 @@ export default class ToDoList {
 
       const box = taskRow.querySelector('input[type=checkbox]');
       box.addEventListener('change', (e) => {
-        console.log(e.target.parentNode);
+        if (e.target.checked) {
+          task.completed = 'checked';
+        } else {
+          task.completed = '';
+        }
         this.storeData();
         isCompleted();
       });
