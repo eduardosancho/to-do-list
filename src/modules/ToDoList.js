@@ -1,5 +1,5 @@
 import Task from './Task.js';
-import { isCompleted, getCompleted } from './Completed.js';
+import { getCompleted } from './Completed.js';
 
 export default class ToDoList {
   constructor() {
@@ -13,8 +13,13 @@ export default class ToDoList {
   }
 
   removeCompleted() {
-    let completedTasks = getCompleted();
-    completedTasks.forEach((/*task*/) => this.removeTask(/*MISS*/)); 
+    const completedTasks = getCompleted();
+    let counter = 0;
+    completedTasks.forEach((task) => {
+      this.removeTask(task - counter);
+      counter++;
+    });
+    this.displayList();
   }
 
   displayList() {
@@ -41,10 +46,9 @@ export default class ToDoList {
         if (e.target.checked) {
           task.completed = 'checked';
         } else {
-          task.completed = '';
+          task.completed = 'unchecked';
         }
         this.storeData();
-        isCompleted();
       });
 
       this.taskList.appendChild(taskRow);
