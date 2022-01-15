@@ -1,5 +1,5 @@
 import Task from './Task.js';
-import { getCompleted } from './Completed.js';
+import getCompleted from './Completed.js';
 
 export default class ToDoList {
   constructor() {
@@ -17,7 +17,7 @@ export default class ToDoList {
     let counter = 0;
     completedTasks.forEach((task) => {
       this.removeTask(task - counter);
-      counter++;
+      counter += 1;
     });
     this.displayList();
   }

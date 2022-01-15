@@ -1,5 +1,4 @@
-
-function getCompleted() {
+export default function getCompleted() {
   const storageList = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : [];
   const completedList = [];
   storageList.forEach((task) => {
@@ -7,7 +6,5 @@ function getCompleted() {
       completedList.push(task.index);
     }
   });
-    return completedList;
-};
-
-export { getCompleted };
+  return completedList;
+}

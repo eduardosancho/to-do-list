@@ -10,9 +10,7 @@ addTaskForm.addEventListener('submit', (e) => {
 });
 
 const addTaskButton = document.getElementById('add-task');
-addTaskButton.addEventListener('click', (e) => {
-  toDoList.addTask();
-});
+addTaskButton.addEventListener('click', () => toDoList.addTask());
 
 const removeCompletedBtn = document.getElementById('clear-completed');
 removeCompletedBtn.addEventListener('click', () => {
@@ -20,5 +18,3 @@ removeCompletedBtn.addEventListener('click', () => {
 });
 
 toDoList.displayList();
-
-
