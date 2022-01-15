@@ -1,4 +1,5 @@
 import Task from './Task.js';
+import getCompleted from './Completed.js';
 
 export default class ToDoList {
   constructor() {
@@ -11,14 +12,23 @@ export default class ToDoList {
     this.storeData();
   }
 
+  removeCompleted() {
+    const completedTasks = getCompleted();
+    let counter = 0;
+    completedTasks.forEach((task) => {
+      this.removeTask(task - counter);
+      counter += 1;
+    });
+    this.displayList();
+  }
+
   displayList() {
     this.taskList.innerHTML = '';
     this.tasks.forEach((task) => {
       task.index = this.tasks.indexOf(task);
       const taskRow = document.createElement('div');
-
       const taskMarkup = (task) => `
-                <input type="checkbox" id="accept-${task.index}">
+                <input type="checkbox" id="accept-${task.index}" ${task.completed}>
                 <div><p class="task-description">${task.description}</p></div>
                 <i id="options-task-${task.index}" class="fas fa-ellipsis-v options"></i>
                 `;
@@ -29,6 +39,16 @@ export default class ToDoList {
 
       taskRow.querySelector('div').addEventListener('click', () => {
         this.editTask(taskRow, task.description, task.index);
+      });
+
+      const box = taskRow.querySelector('input[type=checkbox]');
+      box.addEventListener('change', (e) => {
+        if (e.target.checked) {
+          task.completed = 'checked';
+        } else {
+          task.completed = 'unchecked';
+        }
+        this.storeData();
       });
 
       this.taskList.appendChild(taskRow);

@@ -10,11 +10,11 @@ addTaskForm.addEventListener('submit', (e) => {
 });
 
 const addTaskButton = document.getElementById('add-task');
-addTaskButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  toDoList.addTask();
+addTaskButton.addEventListener('click', () => toDoList.addTask());
+
+const removeCompletedBtn = document.getElementById('clear-completed');
+removeCompletedBtn.addEventListener('click', () => {
+  toDoList.removeCompleted();
 });
 
 toDoList.displayList();
-
-// go();
