@@ -5,7 +5,7 @@
 > Add and remove tasks on on a list.
 
 # Live Version
-> https://eduardosancho.github.io/to-do-list/
+This is the [link](https://eduardosancho.github.io/to-do-list/dist/index.html) that will direct you to the live version.
 
 ![screenshot](./app_screenshot.png)
 
